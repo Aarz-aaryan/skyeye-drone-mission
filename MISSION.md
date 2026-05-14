@@ -172,6 +172,65 @@
 - ❌ `skyeyedm` — if it still exists as a separate project, delete it
 - ✅ Keep `skyeye-drone-v2` — this is the live project
 
+### Website Structure
+
+**Pages:** 5 (`/`, `/about`, `/work`, `/contact`, `/*` 404)
+**Components:** 13 (Nav, Hero, AboutSection, ServicesSection, OurSuccess, FaqSection, Footer, etc.)
+**Styling:** styled-components with dark theme (`#0a0f1a` base, `#00d4ff` accent, `#00ff88` secondary)
+
+#### File Map
+```
+src/
+├── App.js                    — Router setup (5 routes)
+├── index.js                  — React entry
+├── index.css                 — Google Fonts (Space Grotesk)
+├── components/
+│   ├── Nav.js                — Fixed navbar: SkyEyeDM logo, Home/About/Work/Contact links
+│   ├── GlobalStyles.js       — Global CSS (fonts, resets, scrollbar)
+│   ├── Footer.js             — Footer: contact info, service areas, social links
+│   ├── AboutSection.js      — "Why Choose Us" — 4 feature cards (4K Quality, FAA Licensed, Fast Turnaround, Competitive Pricing)
+│   ├── ServicesSection.js    — 5 services with icons: Real Estate Aerial Video, Property Walkthroughs, Aerial Photography, Commercial Roofing Inspection, Event Coverage
+│   ├── OurSuccess.js         — Stats section: "68% Faster Home Sales", "100+ Projects Completed", "5-Star Reviews"
+│   └── FaqSection.js         — 6 FAQ items about pricing, turnaround, weather, locations
+└── pages/
+    ├── Home.js               — Hero: "Aerial Perspectives for Philadelphia Real Estate", CTAs (Get a Free Quote, See Our Work)
+    ├── AboutUs.js            — About page with AboutSection + OurSuccess + Footer
+    ├── OurWork.js            — Portfolio page (placeholder — needs actual demo reels)
+    ├── ContactUs.js          — Contact form (Name, Email, Phone, Project Type dropdown, Message), phone (267) 555-0147
+    └── NotFound.js           — 404 page
+
+public/
+├── index.html                — "SkyEye Drone Media — Aerial Real Estate Videography Philadelphia"
+├── manifest.json             — PWA manifest, theme #0a0f1a
+└── robots.txt
+```
+
+#### Key Content
+- **Hero tagline:** "Professional Drone Videography — University City, Philadelphia"
+- **Hero title:** "Aerial Perspectives for Philadelphia Real Estate"
+- **Hero sub:** "Stunning 4K drone footage and cinematic property tours that make buyers stop scrolling — and actually click on your listing."
+- **Contact email:** info@skyeyeaerial.com
+- **Contact phone:** (267) 555-0147
+- **Service areas:** University City, Center City, Manayunk, Chestnut Hill, Philadelphia metro
+- **Logo:** SkyEyeDM (navbar)
+
+#### Color Scheme
+- Background: `#0a0f1a` (dark navy)
+- Accent: `#00d4ff` (cyan)
+- Secondary: `#00ff88` (green)
+- Gradient: `linear-gradient(135deg, #00d4ff, #00ff88)` (used on CTAs)
+
+#### Dependencies
+- react, react-dom, react-router-dom, styled-components
+
+#### To Edit Content
+Edit the relevant `.js` file in `src/pages/` or `src/components/`, then:
+```bash
+npm install && npm run build
+git add . && git commit -m "update message" && git push
+```
+Vercel auto-deploys on push to `main` branch.
+
 ---
 
 ## Session Memory (for future sessions)
