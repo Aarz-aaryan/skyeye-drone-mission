@@ -4,6 +4,7 @@
 **Business:** SkyEye Drone Media — aerial drone videography and photography for real estate in University City, Philadelphia PA
 **Started:** 2026-05-13
 **Status:** Active — website live, market research complete, lead generation in progress
+**Last Session:** 2026-05-15 — deployment permanently fixed via gitSource, skills cleaned up (removed broken references), MISSION.md refreshed
 **Owner:** Aaryan (University City, Philadelphia)
 
 ---
@@ -55,8 +56,10 @@
 2. Workaround: use `vercel.json` in the repo root to override project settings with `buildCommand: "react-scripts build"`
 3. SSO protection on Hobby plan blocks preview deployment URLs (return HTTP 401) — only production alias works
 4. `skyeye-drone-v2.vercel.app` works fine (production alias). Individual deployment URLs get 401 blocked
-5. Old project `prj_bMf58q0DoTsWttuRUMObYEqy4Uh` was deleted — skyeye-drone-media.vercel.app URL broke because the project is gone
-6. Never delete a Vercel project that has an active URL you need — deletion breaks the URL permanently
+5. Never delete a Vercel project that has an active URL you need — deletion breaks the URL permanently
+6. **`files[]` upload via Composio creates Lambda storage that intercepts static assets** — JS returns 401, CSS returns 404. Use `gitSource` instead (Vercel clones from GitHub, builds, serves from CDN).
+7. **`commandForIgnoringBuildStep: "exit 0"` cancels ALL GitHub-triggered deployments** — clear it via `VERCEL_UPDATE_PROJECT2`. The `buildCommand` in vercel.json works because Vercel reads it before the override fires.
+8. **Vercel Personal API Token** stored in `~/.hermes/.env` as `VERCEL_TOKEN`, `VERCEL_PROJECT_ID`, `VERCEL_TEAM_ID`. Token has `vcp_` prefix. Get from `.env` — do NOT commit to repo.
 
 ---
 
@@ -111,13 +114,14 @@
 
 ## Agent Delegation Log
 
-| Agent | Task | Status |
-|---|---|---|
-| Jarvis | Website creation from Capture-Portfolio template | ✅ Done |
-| Jarvis | Vercel deployment fix + content update | ✅ Done |
-| Nina | Market research (competitors, pricing, prospects) | ✅ Done |
-| Nina | Notion page creation | ✅ Done |
-| Aarz (self) | Lead tracking Google Sheet | ✅ Done |
+| Agent | Task | Status | Date |
+|---|---|---|---|
+| Jarvis | Website creation from Capture-Portfolio template | ✅ Done | 2026-05-13 |
+| Jarvis | Vercel deployment fix + content update | ✅ Done | 2026-05-14 |
+| Nina | Market research (competitors, pricing, prospects) | ✅ Done | 2026-05-14 |
+| Nina | Notion page creation | ✅ Done | 2026-05-14 |
+| Aarz (self) | Lead tracking Google Sheet | ✅ Done | 2026-05-14 |
+| Aarz (self) | Deployment permanently fixed (gitSource + vercel.json), skills cleaned, MISSION.md updated | ✅ Done | 2026-05-15 |
 
 ---
 
