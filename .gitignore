@@ -1,0 +1,7 @@
+# Contact databases and outreach records are owner-private, not public source.
+leads.csv
+leads-*.csv
+contacts*.csv
+.env
+.env.*
+!.env.example
